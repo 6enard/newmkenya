@@ -53,13 +53,13 @@ const Hero = () => {
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
         <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in pt-16 sm:pt-0">
           <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-tight">
-            Crafting Stories
+            Where Creativity
             <br />
-            <span className="italic">Through Motion</span>
+            <span className="italic">Comes Alive</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed px-4">
-            A creative studio specializing in cinematic storytelling,
-            brand narratives, and visual experiences that captivate.
+            A multidisciplinary creative studio bringing visions to life through
+            design, photography, video, and art.
           </p>
         </div>
 

@@ -25,7 +25,7 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const navItems = ['Home', 'Work', 'About', 'Contact'];
+  const navItems = ['Home', 'Services', 'Work', 'About', 'Contact'];
 
   return (
     <nav

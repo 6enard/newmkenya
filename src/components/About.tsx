@@ -34,18 +34,19 @@ const About = () => {
             </h2>
             <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-300 font-light leading-relaxed">
               <p>
-                StudioMkenya is a creative studio dedicated to crafting visual experiences
-                that resonate. Based in Nairobi, we blend African storytelling traditions
-                with contemporary cinematography.
+                StudioMkenya is a multidisciplinary creative studio dedicated to bringing
+                visions to life. Based in Nairobi, we blend African creativity with
+                contemporary design thinking across all mediums.
               </p>
               <p>
-                Our team of directors, cinematographers, and creative strategists work
-                collaboratively to transform ideas into compelling visual narratives that
-                captivate audiences globally.
+                Our diverse team of designers, photographers, videographers, and artists
+                work collaboratively to transform ideas into compelling visual experiences
+                that resonate with audiences globally.
               </p>
               <p>
-                From concept development to post-production, we handle every aspect of the
-                creative process with meticulous attention to detail and artistic excellence.
+                From brand identity and web design to photography, videography, and large-scale
+                murals, we handle every creative challenge with meticulous attention to detail
+                and artistic excellence.
               </p>
             </div>
           </div>
