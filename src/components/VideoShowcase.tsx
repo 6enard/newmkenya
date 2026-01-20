@@ -11,6 +11,7 @@ interface Project {
 
 const VideoShowcase = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [touchedProject, setTouchedProject] = useState<number | null>(null);
 
   const projects: Project[] = [
     {
@@ -57,25 +58,30 @@ const VideoShowcase = () => {
     },
   ];
 
+  const handleTouch = (projectId: number) => {
+    setTouchedProject(touchedProject === projectId ? null : projectId);
+  };
+
   return (
-    <section id="work" className="min-h-screen bg-white py-24 px-6 lg:px-12">
+    <section className="min-h-screen bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-6xl font-light text-black mb-4 tracking-tight">
+        <div className="mb-12 sm:mb-16 text-center px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light text-black mb-3 sm:mb-4 tracking-tight">
             Featured <span className="italic">Work</span>
           </h2>
-          <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
             A curated selection of our most compelling visual narratives
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group relative aspect-[4/5] overflow-hidden bg-black cursor-pointer"
+              className="group relative aspect-[4/5] overflow-hidden bg-black cursor-pointer rounded-lg"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
+              onClick={() => handleTouch(project.id)}
             >
               <img
                 src={project.thumbnail}
@@ -86,41 +92,43 @@ const VideoShowcase = () => {
 
               <div
                 className={`absolute inset-0 bg-black transition-opacity duration-500 ${
-                  hoveredProject === project.id ? 'opacity-60' : 'opacity-20'
+                  hoveredProject === project.id || touchedProject === project.id
+                    ? 'opacity-60'
+                    : 'opacity-20'
                 }`}
               />
 
               <div
-                className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-500 ${
-                  hoveredProject === project.id
+                className={`absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-500 ${
+                  hoveredProject === project.id || touchedProject === project.id
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-4'
                 }`}
               >
                 <Play
-                  size={48}
-                  className="text-white mb-4 transition-transform duration-300 group-hover:scale-110"
+                  size={40}
+                  className="text-white mb-3 sm:mb-4 transition-transform duration-300 group-hover:scale-110"
                   strokeWidth={1}
                 />
-                <h3 className="text-2xl font-light text-white mb-2 text-center">
+                <h3 className="text-xl sm:text-2xl font-light text-white mb-2 text-center px-2">
                   {project.title}
                 </h3>
-                <p className="text-sm uppercase tracking-widest text-white/80 font-light">
+                <p className="text-xs sm:text-sm uppercase tracking-widest text-white/80 font-light">
                   {project.category}
                 </p>
               </div>
 
               <div
-                className={`absolute bottom-0 left-0 right-0 p-6 transition-all duration-500 ${
-                  hoveredProject === project.id
+                className={`absolute bottom-0 left-0 right-0 p-4 sm:p-6 transition-all duration-500 ${
+                  hoveredProject === project.id || touchedProject === project.id
                     ? 'opacity-0 translate-y-4'
                     : 'opacity-100 translate-y-0'
                 }`}
               >
-                <p className="text-xs uppercase tracking-widest text-white/60 font-light mb-2">
+                <p className="text-xs uppercase tracking-widest text-white/60 font-light mb-1 sm:mb-2">
                   {project.category}
                 </p>
-                <h3 className="text-xl font-light text-white">{project.title}</h3>
+                <h3 className="text-lg sm:text-xl font-light text-white">{project.title}</h3>
               </div>
             </div>
           ))}

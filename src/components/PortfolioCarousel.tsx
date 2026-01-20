@@ -90,19 +90,19 @@ const PortfolioCarousel = () => {
   };
 
   return (
-    <section id="work" className="py-24 px-4 bg-white">
+    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-4">
+        <div className="mb-12 sm:mb-16 text-center px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black mb-3 sm:mb-4">
             Our Work
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             A curated collection of projects showcasing our expertise in
             cinematic storytelling and visual excellence
           </p>
         </div>
 
-        <div className="space-y-20">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-20">
           {portfolioItems.map((item, index) => (
             <div
               key={item.id}
@@ -115,15 +115,15 @@ const PortfolioCarousel = () => {
               }`}
             >
               <div
-                className={`flex items-center gap-8 lg:gap-12 ${
-                  index % 2 === 1 ? 'flex-row-reverse' : ''
+                className={`flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12 ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
               >
-                <div className="flex-1 min-w-0">
+                <div className="w-full lg:flex-1 lg:min-w-0">
                   <div
                     className={`relative overflow-hidden rounded-lg shadow-2xl transition-transform duration-500 hover:shadow-3xl group`}
                     style={{
-                      transform: visibleCards.has(item.id)
+                      transform: visibleCards.has(item.id) && window.innerWidth >= 1024
                         ? `perspective(1200px) rotateY(${
                             index % 2 === 0 ? -5 : 5
                           }deg) rotateX(2deg)`
@@ -133,27 +133,27 @@ const PortfolioCarousel = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-64 sm:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
 
-                <div className="flex-1 min-w-0 space-y-4">
+                <div className="w-full lg:flex-1 lg:min-w-0 space-y-3 sm:space-y-4 px-2">
                   <div className="space-y-2">
-                    <p className="text-sm font-light tracking-widest text-gray-500 uppercase">
+                    <p className="text-xs sm:text-sm font-light tracking-widest text-gray-500 uppercase">
                       {item.category}
                     </p>
-                    <h3 className="text-3xl md:text-4xl font-light text-black">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                     {item.description}
                   </p>
                   <button
-                    className="inline-flex items-center gap-2 text-black font-light border-b-2 border-black pb-1 hover:border-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                    className="inline-flex items-center gap-2 text-black font-light border-b-2 border-black pb-1 hover:border-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black min-h-[44px]"
                     aria-label={`View ${item.title} project`}
                   >
                     Explore Project
