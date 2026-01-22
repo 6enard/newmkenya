@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const checkBanner = () => {
@@ -23,6 +24,15 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -37,9 +47,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed left-0 right-0 z-40 transition-all duration-300 bg-black shadow-md ${
-        hasBanner ? 'top-[52px]' : 'top-0'
-      }`}
+      className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled ? 'bg-black shadow-md' : 'bg-transparent'
+      } ${hasBanner ? 'top-[52px]' : 'top-0'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">

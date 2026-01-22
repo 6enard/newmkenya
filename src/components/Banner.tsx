@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { X, Mail, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const Banner = () => {
@@ -21,10 +21,21 @@ const Banner = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-black text-white py-3 px-4 sm:px-6 animate-slide-down">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex-1 flex justify-center">
-          <p className="text-sm sm:text-base font-light tracking-wide animate-pulse-subtle">
-            ✨ <span className="font-normal">20% OFF PHOTOSHOOT</span> ✨
-          </p>
+        <div className="flex-1 flex justify-center items-center gap-4 sm:gap-8">
+          <a
+            href="mailto:hello@studiomkenya.com"
+            className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:opacity-80 transition-opacity min-h-[44px]"
+          >
+            <Mail size={16} strokeWidth={1.5} />
+            <span className="hidden sm:inline">hello@studiomkenya.com</span>
+          </a>
+          <a
+            href="#contact"
+            className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:opacity-80 transition-opacity min-h-[44px]"
+          >
+            <MapPin size={16} strokeWidth={1.5} />
+            <span>Nairobi, Kenya</span>
+          </a>
         </div>
         <button
           onClick={handleClose}
