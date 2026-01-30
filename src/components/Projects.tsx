@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Play } from 'lucide-react';
 
 interface PortfolioItem {
   id: string;
@@ -9,17 +8,8 @@ interface PortfolioItem {
   category: string;
 }
 
-interface VideoProject {
-  id: number;
-  title: string;
-  category: string;
-  thumbnail: string;
-}
-
 const Projects = () => {
   const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set());
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [touchedProject, setTouchedProject] = useState<number | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const cardsRef = useRef<Map<string, HTMLElement>>(new Map());
 
@@ -44,45 +34,6 @@ const Projects = () => {
       description: 'Identity transformation through strategic motion',
       image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
       category: 'Branding'
-    },
-  ];
-
-  const videoProjects: VideoProject[] = [
-    {
-      id: 1,
-      title: 'Heritage',
-      category: 'Cultural',
-      thumbnail: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800',
-    },
-    {
-      id: 2,
-      title: 'Innovation Lab',
-      category: 'Corporate',
-      thumbnail: 'https://images.pexels.com/photos/3184464/pexels-photo-3184464.jpeg?auto=compress&cs=tinysrgb&w=800',
-    },
-    {
-      id: 3,
-      title: 'Urban Stories',
-      category: 'Documentary',
-      thumbnail: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
-    },
-    {
-      id: 4,
-      title: 'Rhythm & Motion',
-      category: 'Music Video',
-      thumbnail: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-    },
-    {
-      id: 5,
-      title: 'Dreamscapes',
-      category: 'Experimental',
-      thumbnail: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
-    },
-    {
-      id: 6,
-      title: 'Brand Stories',
-      category: 'Commercial',
-      thumbnail: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   ];
 
@@ -117,9 +68,6 @@ const Projects = () => {
     }
   };
 
-  const handleTouch = (projectId: number) => {
-    setTouchedProject(touchedProject === projectId ? null : projectId);
-  };
 
   return (
     <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
@@ -191,71 +139,24 @@ const Projects = () => {
 
         <div className="mb-12 sm:mb-16 text-center px-4">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black mb-3 sm:mb-4">
-            Video <span className="italic">Showcase</span>
+            Visit <span className="italic">Us</span>
           </h3>
           <p className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
-            Compelling visual narratives that engage and inspire
+            Find us at our studio location in Kenya
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {videoProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group relative aspect-[4/5] overflow-hidden bg-black cursor-pointer rounded-lg"
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-              onClick={() => handleTouch(project.id)}
-            >
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
-                loading="lazy"
-              />
-
-              <div
-                className={`absolute inset-0 bg-black transition-opacity duration-500 ${
-                  hoveredProject === project.id || touchedProject === project.id
-                    ? 'opacity-60'
-                    : 'opacity-20'
-                }`}
-              />
-
-              <div
-                className={`absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-500 ${
-                  hoveredProject === project.id || touchedProject === project.id
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4'
-                }`}
-              >
-                <Play
-                  size={40}
-                  className="text-white mb-3 sm:mb-4 transition-transform duration-300 group-hover:scale-110"
-                  strokeWidth={1}
-                />
-                <h3 className="text-xl sm:text-2xl font-light text-white mb-2 text-center px-2">
-                  {project.title}
-                </h3>
-                <p className="text-xs sm:text-sm uppercase tracking-widest text-white/80 font-light">
-                  {project.category}
-                </p>
-              </div>
-
-              <div
-                className={`absolute bottom-0 left-0 right-0 p-4 sm:p-6 transition-all duration-500 ${
-                  hoveredProject === project.id || touchedProject === project.id
-                    ? 'opacity-0 translate-y-4'
-                    : 'opacity-100 translate-y-0'
-                }`}
-              >
-                <p className="text-xs uppercase tracking-widest text-white/60 font-light mb-1 sm:mb-2">
-                  {project.category}
-                </p>
-                <h3 className="text-lg sm:text-xl font-light text-white">{project.title}</h3>
-              </div>
-            </div>
-          ))}
+        <div className="flex justify-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0406837957685!2d36.978520174044625!3d-1.1312444354743905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1137995dd891%3A0x41d708cee52d4b56!2smkenya%20studio!5e0!3m2!1sen!2ske!4v1769816659013!5m2!1sen!2ske"
+            width="600"
+            height="450"
+            style={{ border: 0, borderRadius: '0.5rem' }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-lg shadow-lg max-w-full"
+          ></iframe>
         </div>
       </div>
     </section>
