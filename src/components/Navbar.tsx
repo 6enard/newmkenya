@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,7 +44,13 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const navItems = ['Home', 'About', 'Services', 'Projects', 'Booking'];
+  const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Booking', path: '/booking' },
+  ];
 
   return (
     <nav
@@ -53,22 +60,22 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a
-            href="#home"
+          <Link
+            to="/"
             className="text-xl sm:text-2xl font-light italic tracking-tight text-white transition-opacity duration-300 hover:opacity-80 min-h-[44px] flex items-center"
           >
             StudioMkenya
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+              <Link
+                key={item.label}
+                to={item.path}
                 className="text-sm font-light tracking-wide uppercase text-white transition-all duration-300 hover:opacity-60 min-h-[44px] flex items-center px-2"
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
 
@@ -90,14 +97,14 @@ const Navbar = () => {
       >
         <div className="px-4 sm:px-6 py-6 space-y-2">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+            <Link
+              key={item.label}
+              to={item.path}
               className="block text-base font-light tracking-wide uppercase text-white hover:bg-white/10 transition-colors min-h-[44px] flex items-center px-4 rounded"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </div>
       </div>
