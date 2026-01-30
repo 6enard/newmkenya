@@ -1,9 +1,17 @@
 import { Calendar, CheckCircle2 } from 'lucide-react';
 import { useState, FormEvent } from 'react';
-import { supabase, type Booking } from '../lib/supabase';
+
+interface BookingFormData {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+  preferred_date: string;
+}
 
 const BookingComponent = () => {
-  const [formData, setFormData] = useState<Booking>({
+  const [formData, setFormData] = useState<BookingFormData>({
     name: '',
     email: '',
     phone: '',
@@ -30,20 +38,8 @@ const BookingComponent = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    try {
-      const { error } = await supabase.from('bookings').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          message: formData.message || '',
-          preferred_date: formData.preferred_date,
-          status: 'pending',
-        },
-      ]);
-
-      if (error) throw error;
+    setTimeout(() => {
+      console.log('Booking submission:', formData);
 
       setSubmitStatus('success');
       setFormData({
@@ -58,12 +54,9 @@ const BookingComponent = () => {
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 5000);
-    } catch (error) {
-      console.error('Error submitting booking:', error);
-      setSubmitStatus('error');
-    } finally {
+
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
 
   const handleChange = (
