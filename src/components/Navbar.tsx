@@ -43,7 +43,7 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const navItems = ['Home', 'Services', 'Work', 'About'];
+  const navItems = ['Home', 'About', 'Services', 'Projects', 'Booking'];
 
   return (
     <nav
@@ -70,12 +70,6 @@ const Navbar = () => {
                 {item}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="px-6 py-2.5 bg-white text-black text-sm font-normal tracking-wide uppercase transition-all duration-300 hover:bg-gray-200 hover:scale-105 min-h-[44px] flex items-center rounded"
-            >
-              Contact
-            </a>
           </div>
 
           <button
@@ -105,13 +99,6 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="block text-base font-normal tracking-wide uppercase bg-white text-black hover:bg-gray-200 transition-colors min-h-[44px] flex items-center justify-center px-4 rounded mt-4"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact
-          </a>
         </div>
       </div>
     </nav>

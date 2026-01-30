@@ -1,11 +1,10 @@
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
-import PortfolioCarousel from './components/PortfolioCarousel';
-import VideoShowcase from './components/VideoShowcase';
 import About from './components/About';
-import Contact from './components/Contact';
+import Services from './components/Services';
+import Projects from './components/Projects';
+import Booking from './components/Booking';
 
 function App() {
   return (
@@ -13,11 +12,10 @@ function App() {
       <Banner />
       <Navbar />
       <Hero />
-      <Services />
-      <PortfolioCarousel />
-      <VideoShowcase />
       <About />
-      <Contact />
+      <Services />
+      <Projects />
+      <Booking />
     </div>
   );
 }
