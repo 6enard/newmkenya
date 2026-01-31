@@ -1,5 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronLeft, ArrowRight } from 'lucide-react';
+import Breadcrumb from '../components/Breadcrumb';
 
 interface ProjectDetail {
   id: string;
@@ -115,9 +116,17 @@ const ProjectDetailsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 sm:pb-24">
+        <Breadcrumb
+          items={[
+            { label: 'Home', path: '/' },
+            { label: 'Projects', path: '/projects' },
+            { label: project.title },
+          ]}
+        />
         <button
           onClick={() => navigate('/projects')}
-          className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors mb-8 sm:mb-12 min-h-[44px]"
+          className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors mb-8 sm:mb-12 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black rounded"
+          aria-label={`Back to projects list`}
         >
           <ChevronLeft size={20} />
           <span className="font-light">Back to Projects</span>
@@ -268,7 +277,7 @@ const ProjectDetailsPage = () => {
             </p>
             <button
               onClick={() => navigate('/booking')}
-              className="px-8 sm:px-10 py-3 sm:py-4 bg-black text-white rounded-lg font-light tracking-wide uppercase transition-all duration-300 hover:bg-black/80 hover:shadow-lg min-h-[44px]"
+              className="px-8 sm:px-10 py-3 sm:py-4 bg-black text-white rounded-lg font-light tracking-wide uppercase transition-all duration-300 hover:bg-black/80 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black min-h-[44px]"
             >
               Start a Project
             </button>

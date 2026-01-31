@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -6,8 +6,10 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeNavItem, setActiveNavItem] = useState('');
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkBanner = () => {
@@ -46,6 +48,38 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    setActiveNavItem(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+        const menuButton = document.querySelector('[aria-label="Toggle menu"]');
+        if (menuButton && !menuButton.contains(e.target as Node)) {
+          setIsMobileMenuOpen(false);
+        }
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -60,6 +94,7 @@ const Navbar = () => {
       scrollToSection(sectionId);
     }
     setIsMobileMenuOpen(false);
+    setActiveNavItem(path);
   };
 
   const navItems = [
@@ -70,28 +105,43 @@ const Navbar = () => {
     { label: 'Booking', path: '/booking', sectionId: 'booking' },
   ];
 
+  const isLinkActive = (path: string) => {
+    if (path === '/') {
+      return activeNavItem === '/';
+    }
+    return activeNavItem.startsWith(path);
+  };
+
   return (
     <nav
       className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-black shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-black shadow-lg' : 'bg-transparent'
       } ${hasBanner ? 'top-[52px]' : 'top-0'}`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link
             to="/"
-            className="text-xl sm:text-2xl font-light italic tracking-tight text-white transition-opacity duration-300 hover:opacity-80 min-h-[44px] flex items-center"
+            className="text-xl sm:text-2xl font-light italic tracking-tight text-white transition-all duration-300 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white min-h-[44px] flex items-center"
+            aria-label="StudioMkenya - Go to home page"
           >
             StudioMkenya
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.path}
                 onClick={(e) => handleNavClick(e, item.path, item.sectionId)}
-                className="text-sm font-light tracking-wide uppercase text-white transition-all duration-300 hover:opacity-60 min-h-[44px] flex items-center px-2"
+                className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white rounded ${
+                  isLinkActive(item.path)
+                    ? 'text-white border-b-2 border-white'
+                    : 'text-white/80 hover:text-white border-b-2 border-transparent'
+                }`}
+                aria-current={isLinkActive(item.path) ? 'page' : undefined}
               >
                 {item.label}
               </Link>
@@ -99,10 +149,11 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-white transition-colors duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:opacity-80"
+            className="md:hidden text-white transition-all duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white rounded"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -110,9 +161,13 @@ const Navbar = () => {
       </div>
 
       <div
+        ref={mobileMenuRef}
+        id="mobile-menu"
         className={`md:hidden bg-black border-t border-white/10 shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${
           isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
+        role="region"
+        aria-label="Mobile navigation"
       >
         <div className="px-4 sm:px-6 py-6 space-y-2">
           {navItems.map((item) => (
@@ -120,7 +175,12 @@ const Navbar = () => {
               key={item.label}
               to={item.path}
               onClick={(e) => handleNavClick(e, item.path, item.sectionId)}
-              className="block text-base font-light tracking-wide uppercase text-white hover:bg-white/10 transition-colors min-h-[44px] flex items-center px-4 rounded"
+              className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white ${
+                isLinkActive(item.path)
+                  ? 'text-white bg-white/10'
+                  : 'text-white/80 hover:text-white hover:bg-white/5'
+              }`}
+              aria-current={isLinkActive(item.path) ? 'page' : undefined}
             >
               {item.label}
             </Link>
