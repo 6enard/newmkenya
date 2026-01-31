@@ -1,7 +1,19 @@
 import Hero from '../components/Hero';
+import About from '../components/About';
+import Services from '../components/Services';
+import Projects from '../components/Projects';
+import Booking from '../components/Booking';
 
 const HomePage = () => {
-  return <Hero />;
+  return (
+    <div className="w-full">
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <Booking />
+    </div>
+  );
 };
 
 export default HomePage;

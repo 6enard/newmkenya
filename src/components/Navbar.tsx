@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const checkBanner = () => {
@@ -44,12 +46,28 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, sectionId: string) => {
+    if (isHomePage && sectionId) {
+      e.preventDefault();
+      scrollToSection(sectionId);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Projects', path: '/projects' },
-    { label: 'Booking', path: '/booking' },
+    { label: 'Home', path: '/', sectionId: 'home' },
+    { label: 'About', path: '/about', sectionId: 'about' },
+    { label: 'Services', path: '/services', sectionId: 'services' },
+    { label: 'Projects', path: '/projects', sectionId: 'projects' },
+    { label: 'Booking', path: '/booking', sectionId: 'booking' },
   ];
 
   return (
@@ -72,6 +90,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.path}
+                onClick={(e) => handleNavClick(e, item.path, item.sectionId)}
                 className="text-sm font-light tracking-wide uppercase text-white transition-all duration-300 hover:opacity-60 min-h-[44px] flex items-center px-2"
               >
                 {item.label}
@@ -100,8 +119,8 @@ const Navbar = () => {
             <Link
               key={item.label}
               to={item.path}
+              onClick={(e) => handleNavClick(e, item.path, item.sectionId)}
               className="block text-base font-light tracking-wide uppercase text-white hover:bg-white/10 transition-colors min-h-[44px] flex items-center px-4 rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
             </Link>
