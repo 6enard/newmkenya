@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState('');
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -80,19 +79,7 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, sectionId: string) => {
-    if (isHomePage && sectionId) {
-      e.preventDefault();
-      scrollToSection(sectionId);
-    }
+  const handleNavClick = (path: string) => {
     setIsMobileMenuOpen(false);
     setActiveNavItem(path);
   };
@@ -135,7 +122,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.path}
-                onClick={(e) => handleNavClick(e, item.path, item.sectionId)}
+                onClick={() => handleNavClick(item.path)}
                 className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white rounded ${
                   isLinkActive(item.path)
                     ? 'text-white border-b-2 border-white'
@@ -174,7 +161,7 @@ const Navbar = () => {
             <Link
               key={item.label}
               to={item.path}
-              onClick={(e) => handleNavClick(e, item.path, item.sectionId)}
+              onClick={() => handleNavClick(item.path)}
               className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white ${
                 isLinkActive(item.path)
                   ? 'text-white bg-white/10'
