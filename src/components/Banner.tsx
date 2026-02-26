@@ -19,7 +19,7 @@ const Banner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-black text-white py-3 px-4 sm:px-6 animate-slide-down">
+    <div className="fixed top-0 left-0 right-0 z-50 text-white py-3 px-4 sm:px-6 animate-slide-down" style={{ backgroundColor: '#0123b4' }}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex-1 flex justify-center items-center gap-4 sm:gap-8">
           <a
