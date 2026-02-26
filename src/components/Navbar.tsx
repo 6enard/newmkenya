@@ -106,7 +106,7 @@ const Navbar = () => {
       } ${hasBanner ? 'top-[52px]' : 'top-0'}`}
       style={{
         background: isScrolled
-          ? 'linear-gradient(90deg, #0123b4 0%, #fae714 100%)'
+          ? 'linear-gradient(90deg, #0123b4 0%, #3b82f6 40%, #facc15 70%, #fae714 100%)'
           : 'transparent'
       }}
       role="navigation"
