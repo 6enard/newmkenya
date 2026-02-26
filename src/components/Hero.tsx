@@ -48,7 +48,7 @@ const Hero = () => {
         />
       </video>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-950/50 via-blue-900/20 to-blue-950/60" />
 
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
         <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 animate-fade-in pt-16 sm:pt-0">

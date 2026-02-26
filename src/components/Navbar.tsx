@@ -104,7 +104,11 @@ const Navbar = () => {
       className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled ? 'shadow-lg' : 'bg-transparent'
       } ${hasBanner ? 'top-[52px]' : 'top-0'}`}
-      style={{ backgroundColor: isScrolled ? '#0123b4' : 'transparent' }}
+      style={{
+        background: isScrolled
+          ? 'linear-gradient(90deg, #0123b4 0%, #0a5fbf 50%, #0123b4 100%)'
+          : 'transparent'
+      }}
       role="navigation"
       aria-label="Main navigation"
     >
