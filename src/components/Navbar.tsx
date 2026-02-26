@@ -102,8 +102,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-black shadow-lg' : 'bg-transparent'
+        isScrolled ? 'shadow-lg' : 'bg-transparent'
       } ${hasBanner ? 'top-[52px]' : 'top-0'}`}
+      style={{ backgroundColor: isScrolled ? '#0123b4' : 'transparent' }}
       role="navigation"
       aria-label="Main navigation"
     >
@@ -111,7 +112,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link
             to="/"
-            className="transition-all duration-300 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white min-h-[44px] flex items-center"
+            className="transition-all duration-300 hover:opacity-70 min-h-[44px] flex items-center"
             aria-label="Studio Mkenya - Go to home page"
           >
             <img
@@ -127,7 +128,7 @@ const Navbar = () => {
                 key={item.label}
                 to={item.path}
                 onClick={() => handleNavClick(item.path)}
-                className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white rounded ${
+                className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded ${
                   isLinkActive(item.path)
                     ? 'text-[#fae714] border-b-2 border-[#fae714]'
                     : 'text-white/80 hover:text-[#fae714] border-b-2 border-transparent'
@@ -140,7 +141,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-white hover:text-[#fae714] transition-all duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white rounded"
+            className="md:hidden text-white hover:text-[#fae714] transition-all duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
@@ -166,7 +167,7 @@ const Navbar = () => {
               key={item.label}
               to={item.path}
               onClick={() => handleNavClick(item.path)}
-              className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white ${
+              className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 ${
                 isLinkActive(item.path)
                   ? 'text-[#fae714] bg-white/10'
                   : 'text-white/80 hover:text-[#fae714] hover:bg-white/5'
