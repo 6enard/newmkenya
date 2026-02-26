@@ -24,14 +24,14 @@ const Banner = () => {
         <div className="flex-1 flex justify-center items-center gap-4 sm:gap-8">
           <a
             href="mailto:hello@studiomkenya.com"
-            className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:opacity-80 transition-opacity min-h-[44px]"
+            className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:text-[#1498d4] transition-colors min-h-[44px]"
           >
             <Mail size={16} strokeWidth={1.5} />
             <span className="hidden sm:inline">hello@studiomkenya.com</span>
           </a>
           <a
             href="#contact"
-            className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:opacity-80 transition-opacity min-h-[44px]"
+            className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:text-[#1498d4] transition-colors min-h-[44px]"
           >
             <MapPin size={16} strokeWidth={1.5} />
             <span>Nairobi, Kenya</span>
@@ -39,7 +39,7 @@ const Banner = () => {
         </div>
         <button
           onClick={handleClose}
-          className="ml-4 p-2 hover:bg-white/10 transition-colors rounded min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="ml-4 p-2 hover:bg-white/10 hover:text-[#fae714] transition-colors rounded min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Close banner"
         >
           <X size={18} strokeWidth={2} />

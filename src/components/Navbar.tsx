@@ -129,8 +129,8 @@ const Navbar = () => {
                 onClick={() => handleNavClick(item.path)}
                 className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white rounded ${
                   isLinkActive(item.path)
-                    ? 'text-white border-b-2 border-white'
-                    : 'text-white/80 hover:text-white border-b-2 border-transparent'
+                    ? 'text-[#fae714] border-b-2 border-[#fae714]'
+                    : 'text-white/80 hover:text-[#fae714] border-b-2 border-transparent'
                 }`}
                 aria-current={isLinkActive(item.path) ? 'page' : undefined}
               >
@@ -140,7 +140,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-white transition-all duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white rounded"
+            className="md:hidden text-white hover:text-[#fae714] transition-all duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white rounded"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
@@ -168,8 +168,8 @@ const Navbar = () => {
               onClick={() => handleNavClick(item.path)}
               className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white ${
                 isLinkActive(item.path)
-                  ? 'text-white bg-white/10'
-                  : 'text-white/80 hover:text-white hover:bg-white/5'
+                  ? 'text-[#fae714] bg-white/10'
+                  : 'text-white/80 hover:text-[#fae714] hover:bg-white/5'
               }`}
               aria-current={isLinkActive(item.path) ? 'page' : undefined}
             >

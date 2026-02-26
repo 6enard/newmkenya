@@ -213,7 +213,7 @@ const BookingComponent = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 sm:py-5 bg-white text-black hover:bg-white/90 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 sm:py-5 bg-white text-black hover:bg-[#fae714] hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Submitting...' : 'Book Session'}
           </button>
@@ -226,13 +226,13 @@ const BookingComponent = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
             <a
               href="mailto:hello@studiomkenya.com"
-              className="text-white/80 hover:text-white transition-colors font-light min-h-[44px] flex items-center"
+              className="text-white/80 hover:text-[#fae714] transition-colors font-light min-h-[44px] flex items-center"
             >
               hello@studiomkenya.com
             </a>
             <a
               href="tel:+254700000000"
-              className="text-white/80 hover:text-white transition-colors font-light min-h-[44px] flex items-center"
+              className="text-white/80 hover:text-[#fae714] transition-colors font-light min-h-[44px] flex items-center"
             >
               +254 700 000 000
             </a>

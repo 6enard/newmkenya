@@ -78,13 +78,13 @@ const Services = () => {
             <Link
               key={service.id}
               to={`/service/${service.id}`}
-              className="group relative bg-white p-6 sm:p-8 border border-black/10 hover:border-black/30 transition-all duration-500 hover:shadow-xl rounded-lg cursor-pointer"
+              className="group relative bg-white p-6 sm:p-8 border border-black/5 hover:border-[#1498d4] transition-all duration-300 rounded cursor-pointer"
             >
               <div className="mb-6">
-                <div className="w-12 h-12 flex items-center justify-center border border-black/10 group-hover:border-black/30 transition-all duration-300 rounded mb-4">
-                  <service.icon className="text-black" size={24} strokeWidth={1.5} />
+                <div className="w-12 h-12 flex items-center justify-center border border-black/5 group-hover:border-[#1498d4] transition-all duration-300 rounded mb-4">
+                  <service.icon className="text-black group-hover:text-[#1498d4] transition-colors" size={24} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-light text-black mb-2">
+                <h3 className="text-xl sm:text-2xl font-light text-black mb-2 group-hover:text-[#1498d4] transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-light">
@@ -96,10 +96,8 @@ const Services = () => {
                 <p className="text-sm text-gray-600 font-light leading-relaxed flex-1">
                   {service.details}
                 </p>
-                <ArrowRight size={18} className="text-gray-600 group-hover:text-black transition-colors flex-shrink-0 ml-3 mt-1 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={18} className="text-gray-600 group-hover:text-[#1498d4] transition-colors flex-shrink-0 ml-3 mt-1 group-hover:translate-x-1 transition-transform" />
               </div>
-
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-lg" />
             </Link>
           ))}
         </div>

@@ -67,7 +67,7 @@ const Hero = () => {
           <div className="flex items-center justify-between gap-2 sm:gap-4">
             <button
               onClick={prevSlide}
-              className="text-white/60 hover:text-white transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="text-white/60 hover:text-[#fae714] transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Previous video"
             >
               <ChevronLeft size={28} strokeWidth={1.5} />
@@ -84,7 +84,7 @@ const Hero = () => {
 
             <button
               onClick={nextSlide}
-              className="text-white/60 hover:text-white transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="text-white/60 hover:text-[#fae714] transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Next video"
             >
               <ChevronRight size={28} strokeWidth={1.5} />
@@ -117,7 +117,7 @@ const Hero = () => {
 
         <button
           onClick={scrollToWork}
-          className="absolute bottom-6 sm:bottom-12 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-all duration-300 hover:translate-y-1 animate-bounce-slow p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="absolute bottom-6 sm:bottom-12 left-1/2 -translate-x-1/2 text-white/80 hover:text-[#fae714] transition-all duration-300 hover:translate-y-1 animate-bounce-slow p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Scroll to work"
         >
           <ChevronDown size={36} strokeWidth={1} />

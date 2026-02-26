@@ -65,10 +65,10 @@ const About = () => {
           {capabilities.map((capability, index) => (
             <div
               key={index}
-              className="p-6 sm:p-8 border border-white/10 hover:border-white/30 transition-all duration-300 hover:bg-white/5 rounded-lg"
+              className="p-6 sm:p-8 border border-white/10 hover:border-[#fae714] transition-all duration-300 rounded-lg group"
             >
-              <capability.icon className="mb-4 sm:mb-6 text-white" size={36} strokeWidth={1} />
-              <h3 className="text-lg sm:text-xl font-light mb-2 sm:mb-3">{capability.title}</h3>
+              <capability.icon className="mb-4 sm:mb-6 text-white group-hover:text-[#fae714] transition-colors" size={36} strokeWidth={1} />
+              <h3 className="text-lg sm:text-xl font-light mb-2 sm:mb-3 group-hover:text-[#fae714] transition-colors">{capability.title}</h3>
               <p className="text-sm text-gray-400 font-light leading-relaxed">
                 {capability.description}
               </p>

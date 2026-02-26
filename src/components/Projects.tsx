@@ -72,14 +72,14 @@ const Projects = () => {
 
 
   return (
-    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 sm:mb-20 text-center px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black mb-3 sm:mb-4">
-            Our <span className="italic">Work</span>
+            Featured <span className="italic">Work</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            A curated collection showcasing our expertise in visual storytelling and creative excellence
+            Selected projects showcasing our creative excellence
           </p>
         </div>
 
@@ -128,10 +128,10 @@ const Projects = () => {
                       {item.category}
                     </p>
                     <div className="flex items-start gap-3 group-hover:gap-4 transition-all">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black group-hover:text-[#1498d4] transition-colors">
                         {item.title}
                       </h3>
-                      <ArrowRight size={24} className="text-gray-600 group-hover:text-black transition-colors flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight size={24} className="text-gray-600 group-hover:text-[#1498d4] transition-colors flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
