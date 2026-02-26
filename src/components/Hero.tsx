@@ -40,7 +40,7 @@ const Hero = () => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
       >
         <source
           src={videos[currentSlide].url}
