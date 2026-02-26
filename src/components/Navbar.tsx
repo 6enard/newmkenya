@@ -111,10 +111,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link
             to="/"
-            className="text-xl sm:text-2xl font-light italic tracking-tight text-white transition-all duration-300 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white min-h-[44px] flex items-center"
-            aria-label="StudioMkenya - Go to home page"
+            className="transition-all duration-300 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white min-h-[44px] flex items-center"
+            aria-label="Studio Mkenya - Go to home page"
           >
-            StudioMkenya
+            <img
+              src="/studio-mkenya-LOGO.png"
+              alt="Studio Mkenya"
+              className="h-8 sm:h-10 w-auto"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
