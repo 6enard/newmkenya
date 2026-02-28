@@ -111,7 +111,7 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white relative overflow-hidden">
+      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 text-white relative overflow-hidden" style={{ backgroundColor: '#10069f' }}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#0123b4' }}></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#fae714' }}></div>

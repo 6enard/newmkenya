@@ -69,7 +69,7 @@ const BookingComponent = () => {
   };
 
   return (
-    <section id="booking" className="min-h-screen bg-black text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
+    <section id="booking" className="min-h-screen text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden" style={{ backgroundColor: '#10069f' }}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#0123b4' }}></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#fae714' }}></div>
@@ -170,7 +170,7 @@ const BookingComponent = () => {
                 value={formData.service}
                 onChange={handleChange}
                 required
-                className="w-full bg-black border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
+                className="w-full border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer" style={{ backgroundColor: '#10069f' }}
               >
                 <option value="" disabled>
                   Select a service
