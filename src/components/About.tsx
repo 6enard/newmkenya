@@ -25,8 +25,12 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen bg-black text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="min-h-screen bg-black text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#0123b4' }}></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#fae714' }}></div>
+      </div>
+      <div className="relative max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-24">
           <div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 sm:mb-6 tracking-tight">

@@ -111,8 +111,13 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white">
-        <div className="max-w-7xl mx-auto">
+      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#0123b4' }}></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#fae714' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#10069f' }}></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-12 sm:mb-16 tracking-tight">
             Our <span className="italic">Process</span>
           </h2>
@@ -176,8 +181,12 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#fae714' }}></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#0123b4' }}></div>
+        </div>
+        <div className="relative max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6">
             Ready to <span className="italic">Start</span>?
           </h2>

@@ -130,8 +130,13 @@ const BookingPage = () => {
         </div>
       </div>
 
-      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white">
-        <div className="max-w-4xl mx-auto">
+      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 bg-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#0123b4' }}></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#fae714' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl" style={{ backgroundColor: '#10069f' }}></div>
+        </div>
+        <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16 px-4">
             <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 border border-white/20 rounded-full mb-6">
               <Calendar size={32} strokeWidth={1} className="text-white" />
