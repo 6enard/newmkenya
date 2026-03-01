@@ -160,7 +160,7 @@ const Navbar = () => {
             />
           </a>
 
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -180,7 +180,7 @@ const Navbar = () => {
               href="https://shopmkenya.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded text-white/80 hover:text-[#fae714] border-b-2 border-transparent"
+              className="text-sm font-light tracking-wide uppercase px-4 lg:px-5 py-2 min-h-[44px] flex items-center transition-all duration-300 rounded bg-[#fae714] text-black hover:bg-white hover:shadow-lg ml-2"
             >
               Shop
             </a>
@@ -227,7 +227,7 @@ const Navbar = () => {
             href="https://shopmkenya.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 text-white/80 hover:text-[#fae714] hover:bg-white/5"
+            className="block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center justify-center px-4 py-2 rounded transition-all duration-300 bg-[#fae714] text-black hover:bg-white mt-4"
           >
             Shop
           </a>
