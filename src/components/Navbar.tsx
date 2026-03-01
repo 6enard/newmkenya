@@ -89,6 +89,7 @@ const Navbar = () => {
     { label: 'About', path: '/about', sectionId: 'about' },
     { label: 'Services', path: '/services', sectionId: 'services' },
     { label: 'Projects', path: '/projects', sectionId: 'projects' },
+    { label: 'Contact', path: '/contact', sectionId: 'contact' },
     { label: 'Booking', path: '/booking', sectionId: 'booking' },
   ];
 

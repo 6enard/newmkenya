@@ -179,7 +179,7 @@ const BookingComponent = () => {
                 value={formData.service}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
+                className="w-full bg-white text-black border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
               >
                 <option value="" disabled>
                   Select a service
@@ -202,7 +202,7 @@ const BookingComponent = () => {
                 value={formData.budget}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
+                className="w-full bg-white text-black border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
                 aria-label="Select your budget range in Kenyan Shillings"
               >
                 <option value="" disabled>
