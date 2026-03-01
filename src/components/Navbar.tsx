@@ -127,7 +127,8 @@ const Navbar = () => {
     { label: 'Home', sectionId: 'home' },
     { label: 'About', sectionId: 'about' },
     { label: 'Work', sectionId: 'work' },
-    { label: 'Studio Booking', sectionId: 'studio booking' },
+    { label: 'Studio', sectionId: 'studio' }, 
+    { label: 'Booking', sectionId: 'booking' },
     { label: 'Contact', sectionId: 'contact' },
   ];
 
