@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Palette, Pen, Share2, Globe, Camera, Video, Headphones, Brush } from 'lucide-react';
 
 const Services = () => {
@@ -74,9 +75,10 @@ const Services = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           {services.map((service) => (
-            <div
+            <Link
               key={service.id}
-              className="group relative bg-white p-6 sm:p-8 border border-black/5 hover:border-[#1498d4] transition-all duration-300 rounded"
+              to={`/service/${service.id}`}
+              className="group relative bg-white p-6 sm:p-8 border border-black/5 hover:border-[#1498d4] transition-all duration-300 rounded cursor-pointer block"
             >
               <div className="mb-6">
                 <div className="w-12 h-12 flex items-center justify-center border border-black/5 group-hover:border-[#1498d4] transition-all duration-300 rounded mb-4">
@@ -93,8 +95,17 @@ const Services = () => {
               <p className="text-sm text-gray-600 font-light leading-relaxed">
                 {service.details}
               </p>
-            </div>
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-16 sm:mt-24 text-center">
+          <Link
+            to="/services"
+            className="inline-block px-8 sm:px-12 py-4 bg-black text-white hover:bg-black/80 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px]"
+          >
+            See All Services
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 interface PortfolioItem {
@@ -84,11 +85,12 @@ const Projects = () => {
 
         <div className="space-y-16 sm:space-y-20 lg:space-y-24">
           {portfolioItems.map((item, index) => (
-            <div
+            <Link
               key={item.id}
+              to={`/project/${item.id}`}
               ref={(el) => handleCardRef(item.id, el)}
               id={item.id}
-              className={`group transition-all duration-1000 ease-out transform ${
+              className={`group transition-all duration-1000 ease-out transform block cursor-pointer ${
                 visibleCards.has(item.id)
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-12'
@@ -125,10 +127,11 @@ const Projects = () => {
                     <p className="text-xs sm:text-sm font-light tracking-widest text-gray-500 uppercase">
                       {item.category}
                     </p>
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-start gap-3 group-hover:gap-4 transition-all">
                       <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black">
                         {item.title}
                       </h3>
+                      <ArrowRight size={24} className="text-gray-600 group-hover:text-black transition-colors flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
@@ -136,8 +139,17 @@ const Projects = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-16 sm:mt-24 text-center">
+          <Link
+            to="/projects"
+            className="inline-block px-8 sm:px-12 py-4 bg-black text-white hover:bg-black/80 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px]"
+          >
+            See More Projects
+          </Link>
         </div>
       </div>
 

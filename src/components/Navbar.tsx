@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,15 +97,29 @@ const Navbar = () => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
 
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const offset = 80;
-      const sectionTop = section.offsetTop - offset;
-
-      window.scrollTo({
-        top: sectionTop,
-        behavior: 'smooth'
-      });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const offset = 80;
+          const sectionTop = section.offsetTop - offset;
+          window.scrollTo({
+            top: sectionTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const offset = 80;
+        const sectionTop = section.offsetTop - offset;
+        window.scrollTo({
+          top: sectionTop,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
