@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailsPage from './pages/ProjectDetailsPage';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Contact />
+      <Footer />
     </div>
   );
 }
