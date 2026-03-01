@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
@@ -11,9 +12,20 @@ import AboutPage from './pages/AboutPage';
 import BookingPage from './pages/BookingPage';
 import ContactPage from './pages/ContactPage';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <div className="w-full">
+      <ScrollToTop />
       <Banner />
       <Navbar />
       <Routes>
