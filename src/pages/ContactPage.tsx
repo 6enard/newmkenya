@@ -34,10 +34,10 @@ const ContactPage = () => {
                     <div>
                       <h3 className="text-lg font-light mb-2">Email</h3>
                       <a
-                        href="mailto:hello@studiomkenya.com"
+                        href="mailto:bob@mkenya.me"
                         className="text-gray-600 hover:text-black transition-colors font-light"
                       >
-                        hello@studiomkenya.com
+                        bob@mkenya.me
                       </a>
                       <p className="text-sm text-gray-500 font-light mt-1">
                         We'll respond within 24 hours
@@ -54,10 +54,10 @@ const ContactPage = () => {
                     <div>
                       <h3 className="text-lg font-light mb-2">Phone</h3>
                       <a
-                        href="tel:+254700000000"
+                        href="tel:+254780012372"
                         className="text-gray-600 hover:text-black transition-colors font-light"
                       >
-                        +254 700 000 000
+                        +254 780 012 372
                       </a>
                       <p className="text-sm text-gray-500 font-light mt-1">
                         Monday - Friday, 9AM - 5PM EAT
@@ -120,7 +120,7 @@ const ContactPage = () => {
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '500px' }}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8156854844736!2d36.77619!3d-1.28645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1c0c1c1c1c1d%3A0x1c1c1c1c1c1c1c1c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2skenyu!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127644.27071753207!2d36.8067255086898!3d-1.2403462476148008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1137995dd891%3A0x41d708cee52d4b56!2sstudio%20mkenya!5e0!3m2!1sen!2ske!4v1772354233802!5m2!1sen!2ske"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -152,10 +152,10 @@ const ContactPage = () => {
                 Send us an email and we'll get back to you as soon as possible.
               </p>
               <a
-                href="mailto:hello@studiomkenya.com"
+                href="mailto:bob@mkenya.me"
                 className="text-black hover:text-gray-600 transition-colors font-light underline"
               >
-                hello@studiomkenya.com
+                bob@mkenya.me
               </a>
             </div>
 
@@ -168,10 +168,10 @@ const ContactPage = () => {
                 Reach out to our team directly for immediate assistance.
               </p>
               <a
-                href="tel:+254700000000"
+                href="tel:+254780012372"
                 className="text-black hover:text-gray-600 transition-colors font-light underline"
               >
-                +254 700 000 000
+                +254 780 012 372
               </a>
             </div>
 

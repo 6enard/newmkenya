@@ -115,7 +115,7 @@ const BookingComponent = () => {
         {submitStatus === 'error' && (
           <div className="mb-8 p-6 bg-red-500/10 border border-red-500/30 rounded-lg animate-fade-in">
             <p className="text-sm text-red-400 font-light">
-              Something went wrong. Please try again or contact us directly at hello@studiomkenya.com
+              Something went wrong. Please try again or contact us directly at bob@mkenya.me
             </p>
           </div>
         )}
@@ -168,7 +168,7 @@ const BookingComponent = () => {
                 onChange={handleChange}
                 required
                 className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px]"
-                placeholder="+254 700 000 000"
+                placeholder="+254 780 012 372"
               />
             </div>
 
@@ -301,16 +301,16 @@ const BookingComponent = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
             <a
-              href="mailto:hello@studiomkenya.com"
+              href="mailto:bob@mkenya.me"
               className="text-white/80 hover:text-[#fae714] transition-colors font-light min-h-[44px] flex items-center"
             >
-              hello@studiomkenya.com
+              bob@mkenya.me
             </a>
             <a
-              href="tel:+254700000000"
+              href="tel:+254780012372"
               className="text-white/80 hover:text-[#fae714] transition-colors font-light min-h-[44px] flex items-center"
             >
-              +254 700 000 000
+              +254 780 012 372
             </a>
           </div>
         </div>

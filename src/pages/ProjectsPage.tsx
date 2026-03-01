@@ -197,7 +197,7 @@ const ProjectsPage = () => {
           </p>
           <div className="flex justify-center">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0406837957685!2d36.978520174044625!3d-1.1312444354743905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1137995dd891%3A0x41d708cee52d4b56!2smkenya%20studio!5e0!3m2!1sen!2ske!4v1769816659013!5m2!1sen!2ske"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127644.27071753207!2d36.8067255086898!3d-1.2403462476148008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1137995dd891%3A0x41d708cee52d4b56!2sstudio%20mkenya!5e0!3m2!1sen!2ske!4v1772354233802!5m2!1sen!2ske"
               width="600"
               height="450"
               style={{ border: 0, borderRadius: '0.5rem' }}

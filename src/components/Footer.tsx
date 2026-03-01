@@ -29,11 +29,11 @@ const Footer = () => {
             </h3>
             <div className="space-y-4">
               <a
-                href="mailto:hello@studiomkenya.com"
+                href="mailto:bob@mkenya.me"
                 className="flex items-center gap-3 text-white/80 hover:text-[#fae714] transition-colors min-h-[44px]"
               >
                 <Mail size={18} strokeWidth={1.5} />
-                <span className="font-light text-sm">hello@studiomkenya.com</span>
+                <span className="font-light text-sm">bob@mkenya.me</span>
               </a>
               <div className="flex items-center gap-3 text-white/80 min-h-[44px]">
                 <MapPin size={18} strokeWidth={1.5} />

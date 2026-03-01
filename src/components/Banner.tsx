@@ -23,11 +23,11 @@ const Banner = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex-1 flex justify-center items-center gap-4 sm:gap-8">
           <a
-            href="mailto:hello@studiomkenya.com"
+            href="mailto:bob@mkenya.me"
             className="flex items-center gap-2 text-sm sm:text-base font-light tracking-wide hover:text-[#1498d4] transition-colors min-h-[44px]"
           >
             <Mail size={16} strokeWidth={1.5} />
-            <span className="hidden sm:inline">hello@studiomkenya.com</span>
+            <span className="hidden sm:inline">bob@mkenya.me</span>
           </a>
           <a
             href="#contact"
