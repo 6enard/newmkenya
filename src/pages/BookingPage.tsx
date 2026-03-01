@@ -9,6 +9,7 @@ interface BookingFormData {
   budget: string;
   message: string;
   preferred_date: string;
+  preferred_time: string;
 }
 
 const BookingPage = () => {
@@ -20,6 +21,7 @@ const BookingPage = () => {
     budget: '',
     message: '',
     preferred_date: '',
+    preferred_time: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -82,6 +84,7 @@ const BookingPage = () => {
         budget: '',
         message: '',
         preferred_date: '',
+        preferred_time: '',
       });
 
       setTimeout(() => {
@@ -278,20 +281,55 @@ const BookingPage = () => {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="preferred_date" className="block text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3 font-light">
-                Preferred Date
-              </label>
-              <input
-                type="date"
-                id="preferred_date"
-                name="preferred_date"
-                value={formData.preferred_date}
-                onChange={handleChange}
-                required
-                min={new Date().toISOString().split('T')[0]}
-                className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div>
+                <label htmlFor="preferred_date" className="block text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3 font-light">
+                  Preferred Date
+                </label>
+                <div className="relative">
+                  <Calendar size={18} className="absolute left-0 top-1/2 -translate-y-1/2 text-white/60 pointer-events-none" />
+                  <input
+                    type="date"
+                    id="preferred_date"
+                    name="preferred_date"
+                    value={formData.preferred_date}
+                    onChange={handleChange}
+                    required
+                    min={new Date().toISOString().split('T')[0]}
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 pl-8 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="preferred_time" className="block text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3 font-light">
+                  Preferred Time
+                </label>
+                <div className="relative">
+                  <Clock size={18} className="absolute left-0 top-1/2 -translate-y-1/2 text-white/60 pointer-events-none" />
+                  <select
+                    id="preferred_time"
+                    name="preferred_time"
+                    value={formData.preferred_time}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white text-black border-b border-white/20 focus:border-white py-3 sm:py-4 pl-8 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
+                  >
+                    <option value="" disabled>
+                      Select time
+                    </option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
             <div>

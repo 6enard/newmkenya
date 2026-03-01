@@ -32,7 +32,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'about', 'services', 'work', 'booking', 'contact'];
+      const sections = ['home', 'about', 'work', 'studio', 'booking', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -126,8 +126,8 @@ const Navbar = () => {
   const navItems = [
     { label: 'Home', sectionId: 'home' },
     { label: 'About', sectionId: 'about' },
-    { label: 'Services', sectionId: 'services' },
-    { label: 'Projects', sectionId: 'work' },
+    { label: 'Work', sectionId: 'work' },
+    { label: 'Studio', sectionId: 'studio' },
     { label: 'Booking', sectionId: 'booking' },
     { label: 'Contact', sectionId: 'contact' },
   ];
@@ -176,6 +176,14 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
+            <a
+              href="https://shopmkenya.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded text-white/80 hover:text-[#fae714] border-b-2 border-transparent"
+            >
+              Shop
+            </a>
           </div>
 
           <button
@@ -215,6 +223,14 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
+          <a
+            href="https://shopmkenya.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 text-white/80 hover:text-[#fae714] hover:bg-white/5"
+          >
+            Shop
+          </a>
         </div>
       </div>
     </nav>
