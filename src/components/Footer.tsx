@@ -1,4 +1,4 @@
-import { Mail, MapPin, Linkedin, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Instagram, Facebook, Music } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -66,13 +66,13 @@ const Footer = () => {
                 <Instagram size={18} strokeWidth={1.5} />
               </a>
               <a
-                href="https://twitter.com/mk3ny4"
+                href="https://tiktok.com/@mk3ny4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded border border-white/20 text-white/80 hover:border-[#fae714] hover:text-[#fae714] transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="Twitter - @mk3ny4"
+                aria-label="TikTok - @mk3ny4"
               >
-                <Twitter size={18} strokeWidth={1.5} />
+                <Music size={18} strokeWidth={1.5} />
               </a>
               <a
                 href="https://facebook.com/mk3ny4"
