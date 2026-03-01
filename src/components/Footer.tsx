@@ -48,38 +48,38 @@ const Footer = () => {
             </h3>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mk3ny4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded border border-white/20 text-white/80 hover:border-[#fae714] hover:text-[#fae714] transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="LinkedIn"
+                aria-label="LinkedIn - @mk3ny4"
               >
                 <Linkedin size={18} strokeWidth={1.5} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/mk3ny4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded border border-white/20 text-white/80 hover:border-[#fae714] hover:text-[#fae714] transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="Instagram"
+                aria-label="Instagram - @mk3ny4"
               >
                 <Instagram size={18} strokeWidth={1.5} />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://twitter.com/mk3ny4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded border border-white/20 text-white/80 hover:border-[#fae714] hover:text-[#fae714] transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="Twitter"
+                aria-label="Twitter - @mk3ny4"
               >
                 <Twitter size={18} strokeWidth={1.5} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/mk3ny4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded border border-white/20 text-white/80 hover:border-[#fae714] hover:text-[#fae714] transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="Facebook"
+                aria-label="Facebook - @mk3ny4"
               >
                 <Facebook size={18} strokeWidth={1.5} />
               </a>
