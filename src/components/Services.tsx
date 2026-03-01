@@ -1,5 +1,4 @@
-import { Palette, Pen, Share2, Globe, Camera, Video, Headphones, Brush, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Palette, Pen, Share2, Globe, Camera, Video, Headphones, Brush } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -75,10 +74,9 @@ const Services = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           {services.map((service) => (
-            <Link
+            <div
               key={service.id}
-              to={`/service/${service.id}`}
-              className="group relative bg-white p-6 sm:p-8 border border-black/5 hover:border-[#1498d4] transition-all duration-300 rounded cursor-pointer"
+              className="group relative bg-white p-6 sm:p-8 border border-black/5 hover:border-[#1498d4] transition-all duration-300 rounded"
             >
               <div className="mb-6">
                 <div className="w-12 h-12 flex items-center justify-center border border-black/5 group-hover:border-[#1498d4] transition-all duration-300 rounded mb-4">
@@ -92,13 +90,10 @@ const Services = () => {
                 </p>
               </div>
 
-              <div className="flex items-start justify-between">
-                <p className="text-sm text-gray-600 font-light leading-relaxed flex-1">
-                  {service.details}
-                </p>
-                <ArrowRight size={18} className="text-gray-600 group-hover:text-[#1498d4] transition-colors flex-shrink-0 ml-3 mt-1 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
+              <p className="text-sm text-gray-600 font-light leading-relaxed">
+                {service.details}
+              </p>
+            </div>
           ))}
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 interface PortfolioItem {
@@ -72,8 +71,8 @@ const Projects = () => {
 
 
   return (
-    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="work" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="mb-16 sm:mb-20 text-center px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black mb-3 sm:mb-4">
             Featured <span className="italic">Work</span>
@@ -83,14 +82,13 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="space-y-16 sm:space-y-20 lg:space-y-24 mb-16 sm:mb-20">
+        <div className="space-y-16 sm:space-y-20 lg:space-y-24">
           {portfolioItems.map((item, index) => (
-            <Link
+            <div
               key={item.id}
-              to={`/project/${item.id}`}
               ref={(el) => handleCardRef(item.id, el)}
               id={item.id}
-              className={`group transition-all duration-1000 ease-out transform block cursor-pointer ${
+              className={`group transition-all duration-1000 ease-out transform ${
                 visibleCards.has(item.id)
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-12'
@@ -127,11 +125,10 @@ const Projects = () => {
                     <p className="text-xs sm:text-sm font-light tracking-widest text-gray-500 uppercase">
                       {item.category}
                     </p>
-                    <div className="flex items-start gap-3 group-hover:gap-4 transition-all">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black group-hover:text-[#1498d4] transition-colors">
+                    <div className="flex items-start gap-3">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black">
                         {item.title}
                       </h3>
-                      <ArrowRight size={24} className="text-gray-600 group-hover:text-[#1498d4] transition-colors flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
@@ -139,10 +136,12 @@ const Projects = () => {
                   </p>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
+      </div>
 
+      <div className="mt-16 sm:mt-24">
         <div className="mb-12 sm:mb-16 text-center px-4">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-black mb-3 sm:mb-4">
             Visit <span className="italic">Us</span>
@@ -152,16 +151,17 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="flex justify-center">
+        <div className="w-full">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0406837957685!2d36.978520174044625!3d-1.1312444354743905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1137995dd891%3A0x41d708cee52d4b56!2smkenya%20studio!5e0!3m2!1sen!2ske!4v1769816659013!5m2!1sen!2ske"
-            width="600"
-            height="450"
-            style={{ border: 0, borderRadius: '0.5rem' }}
+            width="100%"
+            height="500"
+            style={{ border: 0 }}
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-lg shadow-lg max-w-full"
+            title="Studio Mkenya Location"
+            className="w-full"
           ></iframe>
         </div>
       </div>

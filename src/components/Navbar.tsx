@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState('');
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('home');
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,8 +28,25 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      const sections = ['home', 'work', 'about', 'services', 'booking', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -46,10 +61,6 @@ const Navbar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    setActiveNavItem(location.pathname);
-  }, [location.pathname]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -79,26 +90,30 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (path: string) => {
+  const handleNavClick = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
     setIsMobileMenuOpen(false);
-    setActiveNavItem(path);
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const offset = 80;
+      const sectionTop = section.offsetTop - offset;
+
+      window.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const navItems = [
-    { label: 'Home', path: '/', sectionId: 'home' },
-    { label: 'About', path: '/about', sectionId: 'about' },
-    { label: 'Services', path: '/services', sectionId: 'services' },
-    { label: 'Projects', path: '/projects', sectionId: 'projects' },
-    { label: 'Contact', path: '/contact', sectionId: 'contact' },
-    { label: 'Booking', path: '/booking', sectionId: 'booking' },
+    { label: 'Home', sectionId: 'home' },
+    { label: 'Projects', sectionId: 'work' },
+    { label: 'About', sectionId: 'about' },
+    { label: 'Services', sectionId: 'services' },
+    { label: 'Booking', sectionId: 'booking' },
+    { label: 'Contact', sectionId: 'contact' },
   ];
-
-  const isLinkActive = (path: string) => {
-    if (path === '/') {
-      return activeNavItem === '/';
-    }
-    return activeNavItem.startsWith(path);
-  };
 
   return (
     <nav
@@ -115,8 +130,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link
-            to="/"
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick('home', e)}
             className="transition-all duration-300 hover:opacity-70 min-h-[44px] flex items-center"
             aria-label="Studio Mkenya - Go to home page"
           >
@@ -125,23 +141,23 @@ const Navbar = () => {
               alt="Studio Mkenya"
               className="h-8 sm:h-10 w-auto"
             />
-          </Link>
+          </a>
 
           <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
-                to={item.path}
-                onClick={() => handleNavClick(item.path)}
+                href={`#${item.sectionId}`}
+                onClick={(e) => handleNavClick(item.sectionId, e)}
                 className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded ${
-                  isLinkActive(item.path)
+                  activeSection === item.sectionId
                     ? 'text-[#fae714] border-b-2 border-[#fae714]'
                     : 'text-white/80 hover:text-[#fae714] border-b-2 border-transparent'
                 }`}
-                aria-current={isLinkActive(item.path) ? 'page' : undefined}
+                aria-current={activeSection === item.sectionId ? 'page' : undefined}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -168,19 +184,19 @@ const Navbar = () => {
       >
         <div className="px-4 sm:px-6 py-6 space-y-2">
           {navItems.map((item) => (
-            <Link
+            <a
               key={item.label}
-              to={item.path}
-              onClick={() => handleNavClick(item.path)}
+              href={`#${item.sectionId}`}
+              onClick={(e) => handleNavClick(item.sectionId, e)}
               className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 ${
-                isLinkActive(item.path)
+                activeSection === item.sectionId
                   ? 'text-[#fae714] bg-white/10'
                   : 'text-white/80 hover:text-[#fae714] hover:bg-white/5'
               }`}
-              aria-current={isLinkActive(item.path) ? 'page' : undefined}
+              aria-current={activeSection === item.sectionId ? 'page' : undefined}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </div>
       </div>
