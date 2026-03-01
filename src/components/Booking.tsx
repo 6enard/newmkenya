@@ -251,7 +251,7 @@ const BookingComponent = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 sm:py-5 bg-white text-black hover:bg-[#fae714] hover:text-black transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 sm:py-5 bg-[#fae714] text-black hover:bg-white transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Submitting...' : 'Book Session'}
           </button>

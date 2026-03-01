@@ -194,7 +194,7 @@ const ServicesPage = () => {
           </p>
           <Link
             to="/booking"
-            className="inline-block px-8 sm:px-12 py-4 bg-white text-black hover:bg-white/90 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded"
+            className="inline-block px-8 sm:px-12 py-4 bg-[#fae714] text-black hover:bg-white transition-all duration-300 uppercase tracking-widest text-sm font-light rounded"
           >
             Book a Consultation
           </Link>

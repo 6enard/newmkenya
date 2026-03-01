@@ -108,7 +108,7 @@ const ContactPage = () => {
                 </p>
                 <a
                   href="/booking"
-                  className="inline-block px-8 py-3 bg-black text-white hover:bg-black/80 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded"
+                  className="inline-block px-8 py-3 bg-[#fae714] text-black hover:bg-white transition-all duration-300 uppercase tracking-widest text-sm font-light rounded"
                 >
                   Book a Session
                 </a>

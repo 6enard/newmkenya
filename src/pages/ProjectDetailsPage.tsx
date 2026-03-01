@@ -277,7 +277,7 @@ const ProjectDetailsPage = () => {
             </p>
             <button
               onClick={() => navigate('/booking')}
-              className="px-8 sm:px-10 py-3 sm:py-4 bg-black text-white rounded-lg font-light tracking-wide uppercase transition-all duration-300 hover:bg-black/80 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black min-h-[44px]"
+              className="px-8 sm:px-10 py-3 sm:py-4 bg-[#fae714] text-black rounded-lg font-light tracking-wide uppercase transition-all duration-300 hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fae714] min-h-[44px]"
             >
               Start a Project
             </button>

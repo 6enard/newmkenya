@@ -32,7 +32,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'work', 'about', 'services', 'booking', 'contact'];
+      const sections = ['home', 'about', 'services', 'work', 'booking', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -125,9 +125,9 @@ const Navbar = () => {
 
   const navItems = [
     { label: 'Home', sectionId: 'home' },
-    { label: 'Projects', sectionId: 'work' },
     { label: 'About', sectionId: 'about' },
     { label: 'Services', sectionId: 'services' },
+    { label: 'Projects', sectionId: 'work' },
     { label: 'Booking', sectionId: 'booking' },
     { label: 'Contact', sectionId: 'contact' },
   ];

@@ -8,9 +8,9 @@ const HomePage = () => {
   return (
     <div className="w-full">
       <Hero />
-      <Projects />
       <About />
       <Services />
+      <Projects />
       <Booking />
     </div>
   );
