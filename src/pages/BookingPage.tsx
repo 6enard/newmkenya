@@ -6,6 +6,7 @@ interface BookingFormData {
   email: string;
   phone: string;
   service: string;
+  budget: string;
   message: string;
   preferred_date: string;
 }
@@ -16,6 +17,7 @@ const BookingPage = () => {
     email: '',
     phone: '',
     service: '',
+    budget: '',
     message: '',
     preferred_date: '',
   });
@@ -31,6 +33,13 @@ const BookingPage = () => {
     'Videography',
     'Audio Design',
     'Mural Art',
+  ];
+
+  const budgetOptions = [
+    'Below KSh 50,000',
+    'KSh 50,000 - KSh 100,000',
+    'KSh 100,000 - KSh 500,000',
+    'KSh 500,000+',
   ];
 
   const steps = [
@@ -70,6 +79,7 @@ const BookingPage = () => {
         email: '',
         phone: '',
         service: '',
+        budget: '',
         message: '',
         preferred_date: '',
       });
@@ -238,6 +248,30 @@ const BookingPage = () => {
                   {services.map((service) => (
                     <option key={service} value={service}>
                       {service}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="budget" className="block text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3 font-light">
+                  Budget (Kenyan Shillings)
+                </label>
+                <select
+                  id="budget"
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
+                  aria-label="Select your budget range in Kenyan Shillings"
+                >
+                  <option value="" disabled>
+                    Select budget range
+                  </option>
+                  {budgetOptions.map((budget) => (
+                    <option key={budget} value={budget}>
+                      {budget}
                     </option>
                   ))}
                 </select>
