@@ -310,7 +310,7 @@ const BookingComponent = () => {
               href="tel:+254780012372"
               className="text-white/80 hover:text-[#fae714] transition-colors font-light min-h-[44px] flex items-center"
             >
-              +254 780 012 372
+              +254 780 012 000
             </a>
           </div>
         </div>
