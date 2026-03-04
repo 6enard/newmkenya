@@ -44,102 +44,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mb-12 sm:mb-16 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light text-black mb-3 sm:mb-4 tracking-tight">
-            Get in <span className="italic">Touch</span>
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
-            Let's talk about your project and goal
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto mb-16">
-          {submitStatus === 'success' && (
-            <div className="mb-8 p-6 bg-green-50 border border-green-200 rounded-lg animate-fade-in">
-              <p className="text-green-800 font-light">
-                Thank you for reaching out! We'll get back to you within 24 hours.
-              </p>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm uppercase tracking-widest mb-3 font-light text-gray-700">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-white border border-black/10 focus:border-black py-3 px-4 outline-none transition-colors font-light text-base min-h-[44px] rounded"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm uppercase tracking-widest mb-3 font-light text-gray-700">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-white border border-black/10 focus:border-black py-3 px-4 outline-none transition-colors font-light text-base min-h-[44px] rounded"
-                  placeholder="+254 780 012 372"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="company" className="block text-sm uppercase tracking-widest mb-3 font-light text-gray-700">
-                Company Name / Organisation
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-                className="w-full bg-white border border-black/10 focus:border-black py-3 px-4 outline-none transition-colors font-light text-base min-h-[44px] rounded"
-                placeholder="Your company or organisation"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm uppercase tracking-widest mb-3 font-light text-gray-700">
-                What can we help you with?
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="w-full bg-white border border-black/10 focus:border-black py-3 px-4 outline-none transition-colors resize-none font-light text-base min-h-[120px] rounded"
-                placeholder="Tell us about your project, goals, and what you're looking for..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-4 bg-black text-white hover:bg-gray-800 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        </div>
+    <>
+      <section id="contact" className="min-h-screen bg-white py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="mb-12 sm:mb-16 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-light text-black mb-3 sm:mb-4 tracking-tight">
+              Get in <span className="italic">Touch</span>
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
+              Have a question or ready to start your project? We'd love to hear from you.
+            </p>
+          </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div className="space-y-8">
@@ -266,6 +181,107 @@ const Contact = () => {
         </div>
       </div>
     </section>
+
+    <section
+      id="getintouch"
+      className="py-16 sm:py-24 text-white"
+      style={{
+        background: 'linear-gradient(90deg, #10069f 0%, #0123b4 100%)'
+      }}
+    >
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="mb-12 sm:mb-16 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light mb-3 sm:mb-4 tracking-tight">
+            Get in <span className="italic">touch.</span> Let's talk about your project and goal
+          </h2>
+        </div>
+
+        {submitStatus === 'success' && (
+          <div className="mb-8 p-6 bg-white/20 border border-white/40 rounded-lg">
+            <p className="text-white font-light">
+              Thank you for reaching out! We'll get back to you within 24 hours.
+            </p>
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="name" className="block text-sm uppercase tracking-widest mb-3 font-light text-white/80">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/10 border border-white/30 focus:border-white text-white placeholder-white/50 py-3 px-4 outline-none transition-colors font-light text-base min-h-[44px] rounded"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm uppercase tracking-widest mb-3 font-light text-white/80">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/10 border border-white/30 focus:border-white text-white placeholder-white/50 py-3 px-4 outline-none transition-colors font-light text-base min-h-[44px] rounded"
+                placeholder="+254 780 012 372"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="company" className="block text-sm uppercase tracking-widest mb-3 font-light text-white/80">
+              Company Name / Organisation
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              required
+              className="w-full bg-white/10 border border-white/30 focus:border-white text-white placeholder-white/50 py-3 px-4 outline-none transition-colors font-light text-base min-h-[44px] rounded"
+              placeholder="Your company or organisation"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm uppercase tracking-widest mb-3 font-light text-white/80">
+              What can we help you with?
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={5}
+              className="w-full bg-white/10 border border-white/30 focus:border-white text-white placeholder-white/50 py-3 px-4 outline-none transition-colors resize-none font-light text-base min-h-[120px] rounded"
+              placeholder="Tell us about your project, goals, and what you're looking for..."
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-4 bg-white text-blue-700 hover:bg-white/90 transition-all duration-300 uppercase tracking-widest text-sm font-light rounded min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
+    </section>
+    </>
   );
 };
 
