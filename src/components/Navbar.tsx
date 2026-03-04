@@ -83,7 +83,7 @@ const Navbar = () => {
     }
 
     const handleScroll = () => {
-      const sections = ['home', 'about', 'work'];
+      const sections = ['home', 'about', 'work', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       for (const sectionId of sections) {
@@ -130,7 +130,7 @@ const Navbar = () => {
     { label: 'Home', path: '/', sectionId: 'home' },
     { label: 'About', path: '/', sectionId: 'about' },
     { label: 'Work', path: '/', sectionId: 'work' },
-    { label: 'Contact', path: '/contact', sectionId: null },
+    { label: 'Contact', path: '/', sectionId: 'contact' },
   ];
 
   return (
