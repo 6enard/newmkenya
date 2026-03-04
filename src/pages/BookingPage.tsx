@@ -3,9 +3,7 @@ import { useState, FormEvent } from 'react';
 
 interface BookingFormData {
   name: string;
-  email: string;
   phone: string;
-  service: string;
   budget: string;
   message: string;
   preferred_date: string;
@@ -15,9 +13,7 @@ interface BookingFormData {
 const BookingPage = () => {
   const [formData, setFormData] = useState<BookingFormData>({
     name: '',
-    email: '',
     phone: '',
-    service: '',
     budget: '',
     message: '',
     preferred_date: '',
@@ -25,17 +21,6 @@ const BookingPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const services = [
-    'Logo & Identity',
-    'Graphic Design',
-    'Social Media Content',
-    'Web Design',
-    'Photography',
-    'Videography',
-    'Audio Design',
-    'Mural Art',
-  ];
 
   const budgetOptions = [
     'Below KSh 50,000',
@@ -78,9 +63,7 @@ const BookingPage = () => {
       setSubmitStatus('success');
       setFormData({
         name: '',
-        email: '',
         phone: '',
-        service: '',
         budget: '',
         message: '',
         preferred_date: '',
@@ -198,22 +181,6 @@ const BookingPage = () => {
                   placeholder="John Doe"
                 />
               </div>
-
-              <div>
-                <label htmlFor="email" className="block text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3 font-light">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px]"
-                  placeholder="john@example.com"
-                />
-              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -231,29 +198,6 @@ const BookingPage = () => {
                   className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px]"
                   placeholder="+254 780 012 372"
                 />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3 font-light">
-                  Service Needed
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-transparent text-white border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px] cursor-pointer"
-                >
-                  <option value="" disabled>
-                    Select a service
-                  </option>
-                  {services.map((service) => (
-                    <option key={service} value={service}>
-                      {service}
-                    </option>
-                  ))}
-                </select>
               </div>
 
               <div>
