@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,22 +30,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      const sections = ['home', 'about', 'work', 'studio', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
     };
 
     handleScroll();
@@ -93,42 +76,17 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (sectionId: string, e: React.MouseEvent) => {
+  const handleNavClick = (path: string, e: React.MouseEvent) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const offset = 80;
-          const sectionTop = section.offsetTop - offset;
-          window.scrollTo({
-            top: sectionTop,
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
-    } else {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const offset = 80;
-        const sectionTop = section.offsetTop - offset;
-        window.scrollTo({
-          top: sectionTop,
-          behavior: 'smooth'
-        });
-      }
-    }
+    navigate(path);
   };
 
   const navItems = [
-    { label: 'Home', sectionId: 'home' },
-    { label: 'About', sectionId: 'about' },
-    { label: 'Work', sectionId: 'work' },
-    { label: 'Studio Booking', sectionId: 'studio' },
-    { label: 'Contact', sectionId: 'contact' },
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Work', path: '/projects' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -147,8 +105,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a
-            href="#home"
-            onClick={(e) => handleNavClick('home', e)}
+            href="/"
+            onClick={(e) => handleNavClick('/', e)}
             className="transition-all duration-300 hover:opacity-70 min-h-[44px] flex items-center"
             aria-label="Studio Mkenya - Go to home page"
           >
@@ -163,25 +121,24 @@ const Navbar = () => {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href={`#${item.sectionId}`}
-                onClick={(e) => handleNavClick(item.sectionId, e)}
+                href={item.path}
+                onClick={(e) => handleNavClick(item.path, e)}
                 className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded ${
-                  activeSection === item.sectionId
+                  location.pathname === item.path
                     ? 'text-[#fae714] border-b-2 border-[#fae714]'
                     : 'text-white/80 hover:text-[#fae714] border-b-2 border-transparent'
                 }`}
-                aria-current={activeSection === item.sectionId ? 'page' : undefined}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 {item.label}
               </a>
             ))}
             <a
-              href="https://shopmkenya.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/booking"
+              onClick={(e) => handleNavClick('/booking', e)}
               className="text-sm font-light tracking-wide uppercase px-4 lg:px-5 py-2 min-h-[44px] flex items-center transition-all duration-300 rounded bg-[#fae714] text-black hover:bg-white hover:shadow-lg ml-2"
             >
-              Shop
+              Studio Booking
             </a>
           </div>
 
@@ -210,25 +167,24 @@ const Navbar = () => {
           {navItems.map((item) => (
             <a
               key={item.label}
-              href={`#${item.sectionId}`}
-              onClick={(e) => handleNavClick(item.sectionId, e)}
+              href={item.path}
+              onClick={(e) => handleNavClick(item.path, e)}
               className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 ${
-                activeSection === item.sectionId
+                location.pathname === item.path
                   ? 'text-[#fae714] bg-white/10'
                   : 'text-white/80 hover:text-[#fae714] hover:bg-white/5'
               }`}
-              aria-current={activeSection === item.sectionId ? 'page' : undefined}
+              aria-current={location.pathname === item.path ? 'page' : undefined}
             >
               {item.label}
             </a>
           ))}
           <a
-            href="https://shopmkenya.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/booking"
+            onClick={(e) => handleNavClick('/booking', e)}
             className="block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center justify-center px-4 py-2 rounded transition-all duration-300 bg-[#fae714] text-black hover:bg-white mt-4"
           >
-            Shop
+            Studio Booking
           </a>
         </div>
       </div>
