@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasBanner, setHasBanner] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -76,17 +77,60 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (path: string, e: React.MouseEvent) => {
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      return;
+    }
+
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'work'];
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const { offsetTop, offsetHeight } = section;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
+  const handleNavClick = (path: string, sectionId: string | null, e: React.MouseEvent) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    navigate(path);
+
+    if (location.pathname === '/' && sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(sectionId);
+      }
+    } else if (sectionId) {
+      navigate('/');
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      navigate(path);
+    }
   };
 
   const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Work', path: '/projects' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Home', path: '/', sectionId: 'home' },
+    { label: 'About', path: '/', sectionId: 'about' },
+    { label: 'Work', path: '/', sectionId: 'work' },
+    { label: 'Contact', path: '/contact', sectionId: null },
   ];
 
   return (
@@ -118,24 +162,30 @@ const Navbar = () => {
           </a>
 
           <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.path}
-                onClick={(e) => handleNavClick(item.path, e)}
-                className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded ${
-                  location.pathname === item.path
-                    ? 'text-[#fae714] border-b-2 border-[#fae714]'
-                    : 'text-white/80 hover:text-[#fae714] border-b-2 border-transparent'
-                }`}
-                aria-current={location.pathname === item.path ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === '/' && item.sectionId
+                ? activeSection === item.sectionId
+                : location.pathname === item.path;
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.path}
+                  onClick={(e) => handleNavClick(item.path, item.sectionId, e)}
+                  className={`text-sm font-light tracking-wide uppercase px-3 lg:px-4 py-2 min-h-[44px] flex items-center transition-all duration-300 relative rounded ${
+                    isActive
+                      ? 'text-[#fae714] border-b-2 border-[#fae714]'
+                      : 'text-white/80 hover:text-[#fae714] border-b-2 border-transparent'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
             <a
               href="/booking"
-              onClick={(e) => handleNavClick('/booking', e)}
+              onClick={(e) => handleNavClick('/booking', null, e)}
               className="text-sm font-light tracking-wide uppercase px-4 lg:px-5 py-2 min-h-[44px] flex items-center transition-all duration-300 rounded bg-[#fae714] text-black hover:bg-white hover:shadow-lg ml-2"
             >
               Studio Booking
@@ -164,24 +214,30 @@ const Navbar = () => {
         aria-label="Mobile navigation"
       >
         <div className="px-4 sm:px-6 py-6 space-y-2">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.path}
-              onClick={(e) => handleNavClick(item.path, e)}
-              className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 ${
-                location.pathname === item.path
-                  ? 'text-[#fae714] bg-white/10'
-                  : 'text-white/80 hover:text-[#fae714] hover:bg-white/5'
-              }`}
-              aria-current={location.pathname === item.path ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = location.pathname === '/' && item.sectionId
+              ? activeSection === item.sectionId
+              : location.pathname === item.path;
+
+            return (
+              <a
+                key={item.label}
+                href={item.path}
+                onClick={(e) => handleNavClick(item.path, item.sectionId, e)}
+                className={`block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center px-4 py-2 rounded transition-all duration-300 ${
+                  isActive
+                    ? 'text-[#fae714] bg-white/10'
+                    : 'text-white/80 hover:text-[#fae714] hover:bg-white/5'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })}
           <a
             href="/booking"
-            onClick={(e) => handleNavClick('/booking', e)}
+            onClick={(e) => handleNavClick('/booking', null, e)}
             className="block text-base font-light tracking-wide uppercase min-h-[44px] flex items-center justify-center px-4 py-2 rounded transition-all duration-300 bg-[#fae714] text-black hover:bg-white mt-4"
           >
             Studio Booking
