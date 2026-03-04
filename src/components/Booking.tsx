@@ -168,7 +168,7 @@ const BookingComponent = () => {
                 onChange={handleChange}
                 required
                 className="w-full bg-transparent border-b border-white/20 focus:border-white py-3 sm:py-4 outline-none transition-colors font-light text-base min-h-[44px]"
-                placeholder="+254 780 012 372"
+                placeholder="+254 700 000 000"
               />
             </div>
 
